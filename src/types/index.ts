@@ -19,10 +19,10 @@ export interface AppState {
 }
 
 export type AppAction =
-  | { type: 'ADD_ENTRY'; payload: Omit<WeightEntry, 'id' | 'createdAt'> }
+  | { type: 'ADD_ENTRY'; payload: Omit<WeightEntry, 'id' | 'createdAt'> & { id?: string; createdAt?: string } }
   | { type: 'UPDATE_ENTRY'; payload: WeightEntry }
   | { type: 'DELETE_ENTRY'; payload: string }
-  | { type: 'ADD_SCALE'; payload: Omit<Scale, 'id' | 'createdAt' | 'color'> }
+  | { type: 'ADD_SCALE'; payload: Omit<Scale, 'id' | 'createdAt' | 'color'> & { id?: string; color?: string; createdAt?: string } }
   | { type: 'UPDATE_SCALE'; payload: Scale }
   | { type: 'DELETE_SCALE'; payload: string }
   | { type: 'HYDRATE'; payload: AppState }

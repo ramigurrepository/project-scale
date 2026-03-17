@@ -12,12 +12,12 @@ export function dataReducer(state: AppState, action: AppAction): AppState {
       return action.payload
 
     case 'ADD_SCALE': {
-      const color = getNextColor(state.scales)
+      const color = action.payload.color ?? getNextColor(state.scales)
       const scale = {
-        id: crypto.randomUUID(),
+        id: action.payload.id ?? crypto.randomUUID(),
         name: action.payload.name,
         color,
-        createdAt: new Date().toISOString(),
+        createdAt: action.payload.createdAt ?? new Date().toISOString(),
       }
       return { ...state, scales: [...state.scales, scale] }
     }
@@ -38,9 +38,11 @@ export function dataReducer(state: AppState, action: AppAction): AppState {
 
     case 'ADD_ENTRY': {
       const entry = {
-        id: crypto.randomUUID(),
-        ...action.payload,
-        createdAt: new Date().toISOString(),
+        id: action.payload.id ?? crypto.randomUUID(),
+        scaleId: action.payload.scaleId,
+        weight: action.payload.weight,
+        loggedAt: action.payload.loggedAt,
+        createdAt: action.payload.createdAt ?? new Date().toISOString(),
       }
       return { ...state, entries: [...state.entries, entry] }
     }
