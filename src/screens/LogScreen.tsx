@@ -32,11 +32,12 @@ export function LogScreen({ onNavigateToScales }: Props) {
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     const w = parseFloat(weight)
-    if (!w || w <= 0 || !scaleId) return
+    const effectiveScaleId = scaleId || (state.scales[0]?.id ?? '')
+    if (!w || w <= 0 || !effectiveScaleId) return
     dispatch({
       type: 'ADD_ENTRY',
       payload: {
-        scaleId,
+        scaleId: effectiveScaleId,
         weight: w,
         loggedAt: buildISOFromDateAndTimeOfDay(logDate, timeOfDay),
       },
@@ -121,7 +122,7 @@ export function LogScreen({ onNavigateToScales }: Props) {
         <Button
           type="submit"
           fullWidth
-          disabled={!weight || parseFloat(weight) <= 0 || !scaleId}
+          disabled={!weight || parseFloat(weight) <= 0 || !(scaleId || state.scales[0]?.id)}
           className="text-base py-4 min-h-[56px] rounded-2xl"
         >
           שמור שקילה
