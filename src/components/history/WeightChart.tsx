@@ -63,7 +63,7 @@ function WeightLabel(props: { x?: number; y?: number; value?: number | string; f
       x={x}
       y={y - 10}
       fill={fill ?? '#6366f1'}
-      fontSize={10}
+      fontSize={13}
       fontWeight={700}
       textAnchor="middle"
       dominantBaseline="middle"
@@ -94,14 +94,14 @@ export function WeightChart({ data, scales }: Props) {
         <XAxis
           dataKey="date"
           tickFormatter={(val: string) => formatDateShort(val + 'T00:00:00')}
-          tick={{ fontSize: 10, fill: '#B0B3C4' }}
+          tick={{ fontSize: 13, fill: '#B0B3C4' }}
           tickLine={false}
           axisLine={false}
           interval="preserveStartEnd"
         />
         <YAxis
           domain={[yMin, yMax]}
-          tick={{ fontSize: 10, fill: '#B0B3C4' }}
+          tick={{ fontSize: 13, fill: '#B0B3C4' }}
           tickLine={false}
           axisLine={false}
           tickFormatter={(v: number) => `${v}`}

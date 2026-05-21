@@ -84,7 +84,7 @@ export function HistoryScreen({ onNavigateToLog }: Props) {
 
           {last10.length > 0 && (
             <div className="flex flex-col gap-2">
-              <h2 className="text-sm font-semibold text-gray-400 tracking-wide">10 שקילות אחרונות</h2>
+              <h2 className="text-lg font-semibold text-gray-400 tracking-wide">10 שקילות אחרונות</h2>
               <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
                 <div className="max-h-80 overflow-y-auto divide-y divide-gray-50">
                   {last10.map((entry) => {
@@ -96,14 +96,14 @@ export function HistoryScreen({ onNavigateToLog }: Props) {
                           style={{ backgroundColor: scale?.color ?? '#D1D5DB' }}
                         />
                         <div className="flex-1 min-w-0">
-                          <p className="font-bold text-base text-gray-900">{entry.weight.toFixed(1)} <span className="text-sm font-normal text-gray-400">ק"ג</span></p>
-                          <p className="text-xs text-gray-400 truncate">
+                          <p className="font-bold text-xl text-gray-900">{entry.weight.toFixed(1)} <span className="text-base font-normal text-gray-400">ק"ג</span></p>
+                          <p className="text-sm text-gray-400 truncate">
                             {scale?.name ?? 'משקל לא ידוע'} · {formatDateTime(entry.loggedAt)}
                           </p>
                         </div>
                         <button
                           onClick={() => openEdit(entry)}
-                          className="text-xs text-indigo-500 font-medium px-2 py-1 rounded-lg hover:bg-indigo-50 transition-colors"
+                          className="text-sm text-indigo-500 font-medium px-2 py-1 rounded-lg hover:bg-indigo-50 transition-colors"
                         >
                           עריכה
                         </button>

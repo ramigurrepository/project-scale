@@ -59,7 +59,7 @@ export function BottomNav({ active, onNavigate }: Props) {
               <span className="absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 bg-indigo-600 rounded-full" />
             )}
             {tab.icon(isActive)}
-            <span className={`text-xs font-medium ${isActive ? 'text-indigo-600' : 'text-gray-400'}`}>
+            <span className={`text-sm font-medium ${isActive ? 'text-indigo-600' : 'text-gray-400'}`}>
               {tab.label}
             </span>
           </button>
